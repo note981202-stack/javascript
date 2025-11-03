@@ -23,7 +23,7 @@ console.log('합: '+ result);
 
 //prompt (몇 단 출력?)
 
-let temp1 = prompt('숫자값을 입력하세요');
+let temp = prompt('숫자값을 입력하세요');
 document.writeln('<ul>');
 for (let i = 1; i < 10; i++) {
 document.writeln('<li> temp1 * ' + i +' = ' + (temp1 * i) + '</li>');
