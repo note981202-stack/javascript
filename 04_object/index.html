@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul > li:nth-of-type(2) {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>객체, 내장객체</h3>
+    <ul id="list">
+      <li class="fruit">Apple</li>
+      <li>Mango</li>
+      <li>Banana</li>
+      <li class="fruit">Melon</li>
+    </ul>
+    <ul class="list">
+      <li class="fruit">Apple</li>
+      <li>Mango</li>
+      <li>Banana</li>
+      <li class="fruit">Melon</li>
+    </ul>
+    <div>
+      <!--div>ul>li라고만 쳐도 형식이 완성됨-->
+      <ul>
+        <li>원산지 : 에디오피아</li>
+        <li style="display: none">지역: 이르가체프 코레체</li>
+        <li style="display: none">농장: 게뎁</li>
+        <li><img src="images/1.webp" alt="강아지 이미지" /></li>
+      </ul>
+    </div>
+    <script src="dom2.js"></script>
+  </body>
+</html>
