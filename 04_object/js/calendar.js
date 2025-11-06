@@ -1,4 +1,4 @@
-// dom 제어
+// dom 제어-------------------------------------------------------------------------------------
 let yyyy = 2025,
   mm = 11;
 
@@ -19,7 +19,7 @@ document
     showCalendar(yyyy, mm);
   });
 
-// thead 부분.
+// thead 부분.------------------------------------------------------------------------------
 
 function showHeader() {
   //thead
@@ -57,7 +57,7 @@ function showCalendar(year, month) {
     tr.appendChild(td);
   }
 
-  //tbody
+  //tbody---------------------------------------------------------------------------------
   for (let d = 1; d <= 30; d++) {
     let td = document.createElement("td");
     td.innerText = d;

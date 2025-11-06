@@ -1,0 +1,48 @@
+//login.js
+const db = [
+  { userId: "user01", password: "1111" },
+  { userId: "user02", password: "2222" },
+  { userId: "user03", password: "3333" },
+];
+// location.href = 'form.html';     ---페이지를 이동시켜줌
+// location.reload();    --페이지를 새로 열어줌
+// user01, 2222---- 입력하면 로그인이 안되게 함
+
+// let form = document.querySelector("form");
+// form.addEventListener("submit", (e) => {
+//   if (isExist) {
+//     location.href = "form.html";
+//   } else {
+//     alert("ID, pw확인하세요");
+//     location.reload();
+//   }
+// });
+
+//form 이벤트
+document
+  .querySelector('form[name="loginForm"]') //
+  .addEventListener("submit", (e) => {
+    e.preventDefault(); // 기본제출막기
+    let id = document.querySelector('input[name="id"]').value.trim();
+    let pw = document.querySelector('input[name="pw"]').value.trim();
+    //존재여부
+    let isExist = false;
+    // for (let i = 0; i < db.length; i++){ 18라인이랑 같은 의미
+    // if (db[i].userId == id && db[i].password === pw) {
+    for (let user of db) {
+      //--------------------------------------------
+      // db의 유정 정보를 가져오겠다
+      if (user.userId === id && user.password === pw) {
+        isExist = true;
+        break; // 반복문 종료 // 함수종료는 리턴
+      }
+    }
+
+    //로그인 결과 처리
+    if (isExist) {
+      location.href = "form.html";
+    } else {
+      alert("ID, pw확인하세요");
+      location.reload();
+    }
+  });
