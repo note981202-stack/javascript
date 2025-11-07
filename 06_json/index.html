@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+  </head>
+  <body>
+    <!-- <button onclick="postRequest()">Post요청</button> -->
+    <table id="example" class="display" width="100%"></table>
+    <script>
+      let url = `https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=284&serviceKey=7c62d17f5c206640e12ad35a3e1b1b2bc71b9c9583a21991af5abea05cfb1e90`;
+
+      fetch(url) //
+        .then((resp) => resp.json())
+        .then((result) => {
+          const tatallist = result.data;
+          const data = [];
+          for (let center of tatallist) {
+            data.push([
+              center.id,
+              center.centerName,
+              center.phoneNumber,
+              center.address,
+              center.sido,
+            ]);
+          }
+          console.log(data);
+          new DataTable("#example", {
+            columns: [
+              { title: "센터ID" },
+              { title: "센터명" },
+              { title: "전화번호" },
+              { title: "주소" },
+              { title: "시도구분" },
+            ],
+            data: data,
+          });
+        });
+
+      function postRequest() {
+        const data = { id: "3", title: "data sample", author: "user01" }; //3번 아이디를 제이슨으로 보내겠다
+        //post 요청.
+        fetch("http://localhost:3000/posts", {
+          //3번 글을 위의 data로 변경하겠다
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data), // 자바스크립트 언어를 제이슨 타입의 언어로 변경시켜줌
+        })
+          .then(function (resp) {
+            return resp.json();
+          })
+          .then(function (result) {
+            console.log(result);
+          })
+          .catch(function (err) {
+            //error잡는 코드
+            console.log(err);
+          });
+      }
+    </script>
+  </body>
+</html>
