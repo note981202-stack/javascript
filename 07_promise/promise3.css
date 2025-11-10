@@ -1,0 +1,176 @@
+/* 전체 컨테이너 스타일 */
+#list {
+  /* 기본 목록 스타일 제거 */
+  list-style: none;
+  padding: 0;
+  margin: 20px auto; /* 중앙 정렬 */
+  width: 80%; /* 폭 설정 */
+  max-width: 800px;
+  border-top: 2px solid #333; /* 상단 구분선 */
+}
+
+/* 각 목록 항목 (<tr> 역할) */
+#list li {
+  display: flex; /* 자식 <span>을 가로로 정렬 */
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd; /* 하단 구분선 */
+  align-items: center; /* 세로 중앙 정렬 */
+  transition: background-color 0.3s;
+  text-align: center;
+  font-size: small;
+}
+
+/* 마우스 오버 시 스타일 */
+#list li:hover {
+  background-color: #f5f5f5;
+}
+
+/* 각 데이터 요소 (<td> 역할) */
+#list li span {
+  padding: 0 10px;
+  /* 각 항목에 너비 비율을 지정하여 컬럼을 정렬 */
+  /* id, title, author 순서라고 가정하고 비율 설정 */
+}
+
+/* 1. id (가장 좁게) */
+#list li span:nth-child(1) {
+  flex: 1; /* 전체 너비의 10% 정도 */
+  text-align: center;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* 2. title (가장 넓게) */
+#list li span:nth-child(2) {
+  flex: 4; /* 전체 너비의 40% 정도 */
+  font-weight: 500;
+  overflow: hidden; /* 넘치는 텍스트 숨기기 */
+  white-space: nowrap;
+  text-overflow: ellipsis; /* ...으로 표시 */
+}
+
+/* 3. author (중간 너비) */
+#list li span:nth-child(3) {
+  flex: 2; /* 전체 너비의 20% 정도 */
+  text-align: right;
+  color: #6c757d;
+}
+
+/* 헤더 스타일 (선택 사항: 첫 번째 li를 헤더처럼 보이게) */
+/* 만약 첫 번째 li가 데이터가 아닌 제목이라면 아래 스타일을 적용합니다. */
+/* #list li:first-child {
+    font-weight: bold;
+    background-color: #eee;
+    border-bottom: 2px solid #aaa;
+} */
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>도서 등록</title>
+  <style>
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      background: #f9fafc;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      padding-top: 60px;
+    }
+
+    .register {
+      width: 400px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 30px 40px;
+      box-sizing: border-box;
+      transition: transform 0.2s ease;
+    }
+
+    .register:hover {
+      transform: translateY(-3px);
+    }
+
+    .register h3 {
+      text-align: center;
+      color: #333;
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #444;
+      font-size: 15px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #6c63ff;
+      box-shadow: 0 0 4px rgba(108, 99, 255, 0.3);
+      outline: none;
+    }
+
+    button {
+      background: linear-gradient(135deg, #6c63ff, #4e9fff);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #5b54e8, #3a89f7);
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="register">
+    <h3>📘 도서 등록</h3>
+    <form action="" name="addBook">
+      <label>도서번호</label>
+      <input type="text" name="bookNo" />
+
+      <label>도서명</label>
+      <input type="text" name="title" />
+
+      <label>저자</label>
+      <input type="text" name="author" />
+
+      <label>가격</label>
+      <input type="text" name="price" />
+
+      <button type="submit">저장</button>
+    </form>
+  </div>
+</body>
+</html>

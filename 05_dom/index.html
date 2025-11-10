@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Dom 연습 - 상품조회</title>
 
   <style>
   /* 전체 배경 & 폰트 */
@@ -190,15 +190,16 @@
   </head>
   <body>
     <h3>DOM - 상품 조회 연습</h3>
+    <!-- 조회조건 -->
     <div class="search">
-      상품명: <input type="text" />  
+      상품명: <input type="text" placeholder="상품명을 입력하세요" />  
       카테고리: 
       <select class="categories">        
         <option value="All">전체</option>
-
       </select>
       <button>조회</button>
     </div>
+    <!-- 상품목록 -->
     <div class="product">
       <table>
         <thead>
@@ -208,14 +209,13 @@
           <th>상품가격(purchasing)</th>
           <th>카테고리(category)</th>
         </tr>
-        <tbody id="list">
-        </tbody>
       </thead>
+      <tbody id="list"></tbody>
     </table>
   </div>
   <!--paging 처리-->
   <div class ="pagination"></div>
-
+  <!--외부스크립트 연결한 것들-->
     <script src="js/data.js"></script>
     <script src="js/productPage.js"></script>
   </body>

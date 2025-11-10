@@ -45,35 +45,31 @@ const students = [
 
 // localStorage.setItem("students", JSON.stringify(students));
 
-//form 이벤트
+// form 이벤트.
 document
   .querySelector('form[name="loginForm"]') //
   .addEventListener("submit", (e) => {
-    e.preventDefault(); // 기본제출막기
-    let id = document.querySelector('input[name="id"]').value.trim();
-    let pw = document.querySelector('input[name="pw"]').value.trim();
-    //존재여부
+    e.preventDefault();
+
+    let id = document.querySelector('input[name="userId"]').value;
+    let pw = document.querySelector('input[name="password"]').value;
+    // 존재여부.
     let isExist = false;
-    // for (let i = 0; i < db.length; i++){ 18라인이랑 같은 의미
-    // if (db[i].userId == id && db[i].password === pw) {
     for (let user of db) {
-      //--------------------------------------------
-      // db의 유정 정보를 가져오겠다
-      if (user.userId === id && user.password === pw) {
+      if (user.userId == id && user.password == pw) {
         isExist = true;
-        break; // 반복문 종료 // 함수종료는 리턴
+        break; // 반복문 종료.
       }
     }
-
-    //로그인 결과 처리
     if (isExist) {
-      //로그인 성공
+      // 로그인성공.
       if (!localStorage.getItem("students")) {
-        localStorage.setItem("students", JSON.stringify(students)); //데이터 초기화.
+        localStorage.setItem("students", JSON.stringify(students)); // 데이터 초기화.
       }
       location.href = "form.html";
     } else {
-      alert("ID, pw확인하세요");
+      // 로그인실패.
+      alert("ID,PW 확인하세요");
       location.reload();
     }
   });

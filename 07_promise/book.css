@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>📚 도서등록</title>
+  <style>
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      background: #f9fafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h3 {
+      font-size: 24px;
+      color: #333;
+      margin-top: 40px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    /* === 공통 컨테이너 크기 === */
+    .register, table {
+      width: 600px;
+    }
+
+    /* === 등록 폼 스타일 === */
+    .register {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 30px 40px;
+      box-sizing: border-box;
+    }
+
+    .register form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .register label {
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 4px;
+    }
+
+    .register input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .register input[type="text"]:focus {
+      border-color: #6c63ff;
+      box-shadow: 0 0 4px rgba(108, 99, 255, 0.3);
+      outline: none;
+    }
+
+    .register button {
+      background: linear-gradient(135deg, #6c63ff, #4e9fff);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .register button:hover {
+      background: linear-gradient(135deg, #5b54e8, #3a89f7);
+      transform: translateY(-2px);
+    }
+
+    /* === 테이블 스타일 === */
+    table {
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    thead {
+      background: linear-gradient(135deg, #6c63ff, #4e9fff);
+      color: white;
+    }
+
+    th, td {
+      text-align: center;
+      padding: 12px;
+      font-size: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    thead th {
+      font-weight: 600;
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: #f3f6ff;
+    }
+
+    tbody td:nth-child(2) {
+      text-align: left;
+      padding-left: 20px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- 도서 등록 폼 -->
+  <div class="register">
+    <form action="" name="addBook">
+      <label>도서번호</label>
+      <input type="text" name="bookNo" />
+
+      <label>도서명</label>
+      <input type="text" name="title" />
+
+      <label>저자</label>
+      <input type="text" name="author" />
+
+      <label>가격</label>
+      <input type="text" name="price" />
+
+      <button type="submit">저장</button>
+    </form>
+  </div>
+
+  <!-- 도서 목록 테이블 -->
+  <h3>📚 도서목록</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>도서번호</th>
+        <th>제목</th>
+        <th>저자</th>
+        <th>가격</th>
+      </tr>
+    </thead>
+    <tbody id="list">
+      <tr>
+        <td>001</td>
+        <td>모던 자바스크립트 기초</td>
+        <td>김모던</td>
+        <td>20,000원</td>
+      </tr>
+      <tr>
+        <td>002</td>
+        <td>자바스크립트 핵심가이드</td>
+        <td>알베르토</td>
+        <td>22,000원</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="book.js"></script>
+</body>
+</html>
